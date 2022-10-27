@@ -1,0 +1,10 @@
+.contact-back{
+    background-color: rgb(201, 225, 201);
+    color:white;
+}
+.link-git{
+    display:flex;
+    /* justify-content: space-evenly; */
+    flex-direction:row;
+    justify-content: center;
+}

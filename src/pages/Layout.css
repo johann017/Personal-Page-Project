@@ -1,0 +1,7 @@
+.test{
+    border: 5px solid black;
+}
+.footer {
+    bottom: 0%;
+    position: fixed;
+}

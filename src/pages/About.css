@@ -1,0 +1,42 @@
+.about-desc {
+    padding: 1vh 17vw 1vh 3vw;
+}
+
+.statefarm-img{
+    padding: 5vh 3vw 5vh 3vw;
+}
+
+.skills{
+    margin: 1vh 40vw 1vh 40vw;
+}
+
+.skills-headings{
+    margin: 1vh 39vw;
+}
+
+.me-des{
+    /* background-color:white; */
+}
+
+.skils-section {
+    /* background-color: rgb(201, 225, 201); */
+}
+.ratings{
+    justify-content: space-between;
+}
+.exp-title{ 
+    font-family: 'Jura', sans-serif;
+    src: local("Jura"), url("../fonts/Jura.ttf") format("truetype");
+    font-weight: normal;
+    color:white;
+}
+.abt-font {
+    font-family: 'Jura', sans-serif;
+    src: local("Jura"), url("../fonts/Jura.ttf") format("truetype");
+    font-weight: normal;
+    background-color: rgb(201, 225, 201);
+}
+.exp-align {
+    align-items: center;
+    display:flex;
+}

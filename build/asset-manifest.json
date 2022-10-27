@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2f3f18eb.css",
+    "main.js": "/static/js/main.08385437.js",
+    "static/js/787.ef924644.chunk.js": "/static/js/787.ef924644.chunk.js",
+    "static/media/PersonalPagePP.jpg": "/static/media/PersonalPagePP.bdc3f71dec0af2788461.jpg",
+    "static/media/Jura.ttf": "/static/media/Jura.6138926f14a8226caf84.ttf",
+    "static/media/Twitter-logo.png": "/static/media/Twitter-logo.16d7cf3742c8ecd32518.png",
+    "static/media/DC-Metro.png": "/static/media/DC-Metro.093f0d04ef13d8daac3e.png",
+    "static/media/Movie.png": "/static/media/Movie.9573f37c93d8391a6da2.png",
+    "static/media/Johann_Resume.pdf": "/static/media/Johann_Resume.02306c01e62ecf64d3a9.pdf",
+    "static/media/State-Farm-Logo.png": "/static/media/State-Farm-Logo.12b3bc645c4317d6575e.png",
+    "static/media/Righteous-Regular.ttf": "/static/media/Righteous-Regular.fd0110471f2228c1808a.ttf",
+    "index.html": "/index.html",
+    "main.2f3f18eb.css.map": "/static/css/main.2f3f18eb.css.map",
+    "main.08385437.js.map": "/static/js/main.08385437.js.map",
+    "787.ef924644.chunk.js.map": "/static/js/787.ef924644.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2f3f18eb.css",
+    "static/js/main.08385437.js"
+  ]
+}

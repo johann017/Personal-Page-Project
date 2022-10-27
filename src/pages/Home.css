@@ -1,0 +1,28 @@
+.backdrop {
+    background-color: rgb(201, 225, 201);
+}
+
+
+.name{
+    /* font-family: 'Righteous', cursive;
+    src: local("Righteous-Regular"), url("../fonts/Righteous-Regular.ttf") format("truetype");
+    font-weight: normal; */
+    font-size: 45px;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.name-circle{
+    /* border: 5px black solid;
+    margin: 0vh 30vw;
+    padding:3vh 0px;
+    border-radius: 200px; */
+    color: white;
+}
+.major{
+    /* font-family: 'Righteous', cursive;
+    src: local("Righteous-Regular"), url("../fonts/Righteous-Regular.ttf") format("truetype");
+    font-weight: normal; */
+    font-size: 20px;
+    color: white;
+}

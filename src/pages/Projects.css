@@ -1,0 +1,9 @@
+.proj-title{
+    font-family: 'Jura', sans-serif;
+    src: local("Jura"), url("../fonts/Jura.ttf") format("truetype");
+    font-weight: normal;
+    color:white;
+}
+.proj-back {
+    background-color: rgb(201, 225, 201);
+}
