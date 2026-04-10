@@ -305,12 +305,12 @@ function News(): React.ReactElement {
               mb: 1,
             }}
           >
-            Live Feed
+            Live Project
           </Typography>
           <Typography variant="h2" sx={{ mt: 0.5, mb: 2, fontSize: { xs: '2rem', md: '3rem' } }}>
-            News{' '}
+            AI News{' '}
             <Box component="span" sx={{ color: 'primary.main' }}>
-              Briefings
+              Aggregator
             </Box>
           </Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -328,7 +328,7 @@ function News(): React.ReactElement {
               }}
             />
             <Typography variant="body2" color="text.secondary">
-              Real-time &mdash; updates automatically every ~15 min
+              Near Real-time &mdash; updates automatically every ~15 min
             </Typography>
           </Box>
         </Box>

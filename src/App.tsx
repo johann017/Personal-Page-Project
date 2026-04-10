@@ -84,7 +84,7 @@ function AnimatedRoutes(): React.ReactElement {
           <Route path="projects" element={<Projects />} />
           <Route path="resume" element={<Resume />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="news" element={<News />} />
+          <Route path="projects/news-briefing" element={<News />} />
         </Route>
       </Routes>
     </AnimatePresence>
