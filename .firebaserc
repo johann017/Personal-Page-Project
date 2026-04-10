@@ -1,6 +1,7 @@
 {
   "projects": {
-    "staging": "johann-page"
+    "staging": "johann-page",
+    "default": "johann-page"
   },
   "targets": {},
   "etags": {}

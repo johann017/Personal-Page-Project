@@ -27,6 +27,7 @@ const navLinks: NavLink[] = [
   { label: 'About', path: '/about' },
   { label: 'Projects', path: '/projects' },
   { label: 'Resume', path: '/resume' },
+  { label: 'News', path: '/news' },
   { label: 'Contact', path: '/contact' },
 ];
 

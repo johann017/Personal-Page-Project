@@ -9,6 +9,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Resume from './pages/Resume';
+import News from './pages/News';
 
 const theme = createTheme({
   palette: {
@@ -83,6 +84,7 @@ function AnimatedRoutes(): React.ReactElement {
           <Route path="projects" element={<Projects />} />
           <Route path="resume" element={<Resume />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="news" element={<News />} />
         </Route>
       </Routes>
     </AnimatePresence>
