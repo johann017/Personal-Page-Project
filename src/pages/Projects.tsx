@@ -13,6 +13,8 @@ import {
 import { motion } from 'framer-motion';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { Link } from 'react-router-dom';
 import { projects } from '../data/profile';
 
 const fadeUp = {
@@ -73,6 +75,81 @@ function Projects(): React.ReactElement {
               science, and API development.
             </Typography>
           </motion.div>
+        </motion.div>
+
+        {/* Live project callout */}
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+          <Box
+            component={Link}
+            to="/projects/news-briefing"
+            sx={{
+              display: 'flex',
+              alignItems: { xs: 'flex-start', sm: 'center' },
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: 3,
+              mb: 5,
+              p: 3,
+              borderRadius: 3,
+              bgcolor: 'background.paper',
+              border: '1px solid rgba(110, 231, 183, 0.22)',
+              textDecoration: 'none',
+              transition: 'all 0.25s ease',
+              '&:hover': {
+                border: '1px solid rgba(110, 231, 183, 0.5)',
+                boxShadow: '0 12px 40px rgba(0,0,0,0.4)',
+                transform: 'translateY(-2px)',
+              },
+            }}
+          >
+            <Box sx={{ flex: 1 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.75 }}>
+                <FiberManualRecordIcon
+                  sx={{
+                    fontSize: '0.6rem',
+                    color: 'primary.main',
+                    animation: 'pulse 2s ease-in-out infinite',
+                    '@keyframes pulse': {
+                      '0%, 100%': { opacity: 1 },
+                      '50%': { opacity: 0.4 },
+                    },
+                  }}
+                />
+                <Typography sx={{ fontSize: '0.7rem', color: 'primary.main', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+                  Live Project
+                </Typography>
+              </Box>
+              <Typography variant="h6" fontWeight={700} color="text.primary" gutterBottom>
+                AI News Aggregator
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.75, mb: 1.5 }}>
+                A near real-time news briefing engine that clusters and scores global events from multiple
+                sources, powered by Firestore and updated automatically every ~15 minutes.
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 0.75, flexWrap: 'wrap' }}>
+                {['Python', 'Firestore', 'React', 'TypeScript', 'NLP'].map((tag) => (
+                  <Chip
+                    key={tag}
+                    label={tag}
+                    size="small"
+                    sx={{ bgcolor: 'rgba(110, 231, 183, 0.08)', color: 'primary.main', fontSize: '0.7rem', height: 22, fontWeight: 500 }}
+                  />
+                ))}
+              </Box>
+            </Box>
+            <Button
+              variant="outlined"
+              endIcon={<OpenInNewIcon sx={{ fontSize: '0.9rem !important' }} />}
+              sx={{
+                borderColor: 'rgba(110, 231, 183, 0.35)',
+                color: 'primary.main',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
+                '&:hover': { borderColor: 'primary.main', bgcolor: 'rgba(110, 231, 183, 0.06)' },
+              }}
+            >
+              View Live
+            </Button>
+          </Box>
         </motion.div>
 
         {/* Cards */}
@@ -187,7 +264,7 @@ function Projects(): React.ReactElement {
                             },
                           }}
                         >
-                          Demo
+                          Analysis
                         </Button>
                       )}
                     </Box>
