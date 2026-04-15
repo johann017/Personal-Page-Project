@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { AnimatePresence } from 'framer-motion';
@@ -10,6 +10,8 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Resume from './pages/Resume';
 import News from './pages/News';
+import Travels from './pages/Travels';
+import { AdminProvider, useAdmin } from './context/AdminContext';
 
 const theme = createTheme({
   palette: {
@@ -73,6 +75,11 @@ const theme = createTheme({
   },
 });
 
+function AdminRoute({ children }: { children: React.ReactElement }): React.ReactElement {
+  const { isAdmin } = useAdmin();
+  return isAdmin ? children : <Navigate to="/" replace />;
+}
+
 function AnimatedRoutes(): React.ReactElement {
   const location = useLocation();
   return (
@@ -85,6 +92,7 @@ function AnimatedRoutes(): React.ReactElement {
           <Route path="resume" element={<Resume />} />
           <Route path="contact" element={<Contact />} />
           <Route path="projects/news-briefing" element={<News />} />
+          <Route path="travels" element={<AdminRoute><Travels /></AdminRoute>} />
         </Route>
       </Routes>
     </AnimatePresence>
@@ -95,9 +103,11 @@ function App(): React.ReactElement {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
-        <AnimatedRoutes />
-      </BrowserRouter>
+      <AdminProvider>
+        <BrowserRouter>
+          <AnimatedRoutes />
+        </BrowserRouter>
+      </AdminProvider>
     </ThemeProvider>
   );
 }
