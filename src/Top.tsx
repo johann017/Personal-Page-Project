@@ -10,6 +10,9 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Menu,
+  MenuItem,
+  Switch,
   Toolbar,
   Typography,
 } from '@mui/material';
@@ -17,15 +20,24 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useAdmin } from './context/AdminContext';
 
 interface NavLink {
   label: string;
   path: string;
 }
 
-const navLinks: NavLink[] = [
+const baseNavLinks: NavLink[] = [
   { label: 'About', path: '/about' },
   { label: 'Projects', path: '/projects' },
+  { label: 'Resume', path: '/resume' },
+  { label: 'Contact', path: '/contact' },
+];
+
+const adminNavLinks: NavLink[] = [
+  { label: 'About', path: '/about' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'Travels', path: '/travels' },
   { label: 'Resume', path: '/resume' },
   { label: 'Contact', path: '/contact' },
 ];
@@ -33,7 +45,10 @@ const navLinks: NavLink[] = [
 function Navbar(): React.ReactElement {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
   const location = useLocation();
+  const { isAdmin, toggleAdmin } = useAdmin();
+  const navLinks = isAdmin ? adminNavLinks : baseNavLinks;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
@@ -55,23 +70,116 @@ function Navbar(): React.ReactElement {
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ py: 1.5 }}>
+
+            {/* Avatar — opens dropdown */}
             <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.97 }}>
-              <Typography
-                component={Link}
-                to="/"
-                variant="h6"
+              <Box
+                onClick={(e) => setMenuAnchor(e.currentTarget)}
                 sx={{
-                  fontWeight: 800,
-                  color: 'primary.main',
-                  textDecoration: 'none',
-                  fontFamily: '"Space Grotesk", sans-serif',
-                  fontSize: '1.3rem',
-                  letterSpacing: '-0.02em',
+                  width: 36,
+                  height: 36,
+                  borderRadius: '50%',
+                  bgcolor: isAdmin ? 'rgba(129,140,248,0.15)' : 'rgba(110,231,183,0.1)',
+                  border: isAdmin
+                    ? '1.5px solid rgba(129,140,248,0.5)'
+                    : '1.5px solid rgba(110,231,183,0.3)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  transition: 'all 0.25s ease',
+                  '&:hover': {
+                    bgcolor: isAdmin ? 'rgba(129,140,248,0.22)' : 'rgba(110,231,183,0.16)',
+                  },
                 }}
               >
-                JA
-              </Typography>
+                <Typography
+                  sx={{
+                    fontWeight: 800,
+                    color: isAdmin ? 'secondary.main' : 'primary.main',
+                    fontFamily: '"Space Grotesk", sans-serif',
+                    fontSize: '0.8rem',
+                    letterSpacing: '-0.01em',
+                    lineHeight: 1,
+                    userSelect: 'none',
+                    transition: 'color 0.25s ease',
+                  }}
+                >
+                  JA
+                </Typography>
+              </Box>
             </motion.div>
+
+            {/* Avatar dropdown menu */}
+            <Menu
+              anchorEl={menuAnchor}
+              open={Boolean(menuAnchor)}
+              onClose={() => setMenuAnchor(null)}
+              transformOrigin={{ horizontal: 'left', vertical: 'top' }}
+              anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+              slotProps={{
+                paper: {
+                  sx: {
+                    mt: 1,
+                    minWidth: 200,
+                    bgcolor: '#16161f',
+                    border: '1px solid rgba(110,231,183,0.12)',
+                    borderRadius: 2,
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+                  },
+                },
+              }}
+            >
+              {/* Profile row */}
+              <Box sx={{ px: 2, pt: 1.5, pb: 1 }}>
+                <Typography sx={{ fontWeight: 700, fontSize: '0.9rem', color: 'text.primary' }}>
+                  Johann Antisseril
+                </Typography>
+                <Typography sx={{ fontSize: '0.72rem', color: 'text.secondary', mt: 0.25 }}>
+                  Site owner
+                </Typography>
+              </Box>
+
+              <Box sx={{ borderTop: '1px solid rgba(255,255,255,0.06)', mx: 1, my: 0.5 }} />
+
+              {/* Admin mode toggle */}
+              <MenuItem
+                onClick={toggleAdmin}
+                disableRipple
+                sx={{
+                  mx: 0.5,
+                  borderRadius: 1.5,
+                  px: 1.5,
+                  py: 0.75,
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  '&:hover': { bgcolor: 'rgba(110,231,183,0.06)' },
+                }}
+              >
+                <Box>
+                  <Typography sx={{ fontSize: '0.85rem', fontWeight: 500, color: 'text.primary' }}>
+                    Admin mode
+                  </Typography>
+                  <Typography sx={{ fontSize: '0.7rem', color: 'text.secondary' }}>
+                    In progress
+                  </Typography>
+                </Box>
+                <Switch
+                  checked={isAdmin}
+                  size="small"
+                  onClick={(e) => e.stopPropagation()}
+                  onChange={toggleAdmin}
+                  sx={{
+                    ml: 1,
+                    '& .MuiSwitch-switchBase.Mui-checked': { color: 'primary.main' },
+                    '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                      bgcolor: 'primary.dark',
+                    },
+                  }}
+                />
+              </MenuItem>
+            </Menu>
 
             <Box sx={{ flexGrow: 1 }} />
 
