@@ -126,7 +126,7 @@ function Projects(): React.ReactElement {
                 sources, powered by Firestore and updated automatically every ~15 minutes.
               </Typography>
               <Box sx={{ display: 'flex', gap: 0.75, flexWrap: 'wrap' }}>
-                {['Python', 'Firestore', 'React', 'TypeScript', 'NLP'].map((tag) => (
+                {['Python', 'Firestore', 'GCP', 'React', 'TypeScript', 'NLP'].map((tag) => (
                   <Chip
                     key={tag}
                     label={tag}
@@ -149,6 +149,101 @@ function Projects(): React.ReactElement {
             >
               View Live
             </Button>
+          </Box>
+        </motion.div>
+
+        {/* Upcoming project callout */}
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+          <Typography
+            sx={{
+              color: '#f59e0b',
+              letterSpacing: '0.22em',
+              fontSize: '0.7rem',
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              mb: 2,
+            }}
+          >
+            Coming Soon
+          </Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: { xs: 'flex-start', sm: 'center' },
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: 3,
+              mb: 7,
+              p: 3,
+              borderRadius: 3,
+              bgcolor: 'background.paper',
+              border: '1px solid rgba(245, 158, 11, 0.22)',
+              transition: 'all 0.25s ease',
+              '&:hover': {
+                border: '1px solid rgba(245, 158, 11, 0.5)',
+                boxShadow: '0 12px 40px rgba(0,0,0,0.4)',
+                transform: 'translateY(-2px)',
+              },
+            }}
+          >
+            <Box sx={{ flex: 1 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.75 }}>
+                <FiberManualRecordIcon
+                  sx={{
+                    fontSize: '0.6rem',
+                    color: '#f59e0b',
+                    animation: 'pulse 2s ease-in-out infinite',
+                    '@keyframes pulse': {
+                      '0%, 100%': { opacity: 1 },
+                      '50%': { opacity: 0.4 },
+                    },
+                  }}
+                />
+                <Typography sx={{ fontSize: '0.7rem', color: '#f59e0b', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+                  In Development
+                </Typography>
+              </Box>
+              <Typography variant="h6" fontWeight={700} color="text.primary" gutterBottom>
+                MarketHub
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.75, mb: 1.5 }}>
+                A multi-merchant ecommerce marketplace where independent sellers manage their own
+                inventory through a seller dashboard, and shoppers can browse, filter by category,
+                and check out from multiple stores in a single cart.
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 0.75, flexWrap: 'wrap' }}>
+                {['TypeScript', 'Go', 'GraphQL', 'Docker', 'MongoDB'].map((tag) => (
+                  <Chip
+                    key={tag}
+                    label={tag}
+                    size="small"
+                    sx={{ bgcolor: 'rgba(245, 158, 11, 0.08)', color: '#f59e0b', fontSize: '0.7rem', height: 22, fontWeight: 500 }}
+                  />
+                ))}
+              </Box>
+            </Box>
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'flex-start', sm: 'flex-end' }, gap: 1, flexShrink: 0 }}>
+              <Button
+                variant="outlined"
+                size="small"
+                startIcon={<GitHubIcon sx={{ fontSize: '1rem !important' }} />}
+                disabled
+                sx={{
+                  borderColor: 'rgba(245, 158, 11, 0.2)',
+                  color: 'rgba(245, 158, 11, 0.4)',
+                  fontSize: '0.8rem',
+                  py: 0.75,
+                  '&.Mui-disabled': {
+                    borderColor: 'rgba(245, 158, 11, 0.2)',
+                    color: 'rgba(245, 158, 11, 0.4)',
+                  },
+                }}
+              >
+                Code
+              </Button>
+              <Typography sx={{ fontSize: '0.65rem', color: 'text.disabled', letterSpacing: '0.08em' }}>
+                Repo not yet public
+              </Typography>
+            </Box>
           </Box>
         </motion.div>
 

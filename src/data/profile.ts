@@ -64,13 +64,13 @@ export const experience: Experience[] = [
     company: 'State Farm',
     role: 'Software Engineer',
     period: 'June 2023 – Present',
-    tags: ['AWS', 'Python', 'Serverless'],
+    tags: ['AWS', 'Python', 'Terraform', 'JavaScript', 'TypeScript', 'Pipelines', 'REST APIs', 'SQL', 'Databases'],
   },
   {
     company: 'State Farm',
     role: 'Software Engineer Intern',
     period: 'May 2022 – June 2023',
-    tags: ['Java', 'React', 'REST APIs'],
+    tags: ['React', 'JavaScript', 'REST APIs'],
   },
 ];
 
@@ -81,17 +81,28 @@ export const skills: Skills = {
     { name: 'JavaScript / TypeScript', level: 82 },
     { name: 'React', level: 80 },
     { name: 'PostgreSQL', level: 78 },
+    { name: 'FastAPI', level: 78 },
+    { name: 'PyTorch', level: 75 },
     { name: 'Terraform', level: 75 },
+    { name: 'Hugging Face', level: 70 },
     { name: 'CSS / HTML', level: 80 },
+    { name: 'GraphQL', level: 65 },
+    { name: 'Go / Golang', level: 55 },
   ],
   technologies: [
     { name: 'AWS Lambda', level: 95 },
     { name: 'AWS DynamoDB', level: 95 },
     { name: 'AWS S3', level: 95 },
     { name: 'AWS API Gateway', level: 92 },
-    { name: 'AWS RDS / Aurora', level: 78 },
+    { name: 'REST APIs', level: 90 },
+    { name: 'Git', level: 90 },
+    { name: 'GitHub', level: 85 },
     { name: 'AWS CloudWatch', level: 80 },
+    { name: 'Docker', level: 78 },
+    { name: 'AWS RDS / Aurora', level: 78 },
     { name: 'AWS Step Functions', level: 78 },
+    { name: 'CI/CD', level: 76 },
+    { name: 'GitLab', level: 75 },
     { name: 'AWS EventBridge', level: 65 },
   ],
   soft: [
@@ -101,7 +112,7 @@ export const skills: Skills = {
     { name: 'Grit', level: 90 },
     { name: 'Time Management', level: 80 },
   ],
-  aiTools: ['GitHub Copilot', 'Claude', 'ChatGPT'],
+  aiTools: ['GitHub Copilot', 'Claude', 'ChatGPT', 'OpenCode'],
 };
 
 export const projects: Project[] = [
