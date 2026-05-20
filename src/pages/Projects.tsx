@@ -211,7 +211,7 @@ function Projects(): React.ReactElement {
                 and check out from multiple stores in a single cart.
               </Typography>
               <Box sx={{ display: 'flex', gap: 0.75, flexWrap: 'wrap' }}>
-                {['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'REST APIs', 'Docker'].map((tag) => (
+                {['TypeScript', 'Go', 'GraphQL', 'Docker', 'MongoDB'].map((tag) => (
                   <Chip
                     key={tag}
                     label={tag}
